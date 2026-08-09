@@ -1,0 +1,174 @@
+:root {
+  --ink: #141A21;
+  --chalk: #E7E2D3;
+  --slate: #8FA6A3;
+  --teal: #5ED9C4;
+  --amber: #E0A458;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--ink);
+  color: var(--chalk);
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 4rem 1.5rem 6rem;
+}
+
+.wrap {
+  max-width: 640px;
+  width: 100%;
+  position: relative;
+}
+
+.plot {
+  position: absolute;
+  top: -2rem;
+  left: -3rem;
+  right: -3rem;
+  height: 220px;
+  opacity: 0.18;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.content { position: relative; z-index: 1; }
+
+.eyebrow {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin: 0 0 0.6rem;
+}
+
+h1 {
+  font-family: 'Georgia', 'Iowan Old Style', serif;
+  font-size: clamp(2.4rem, 6vw, 3.4rem);
+  font-weight: 500;
+  margin: 0 0 0.75rem;
+  color: var(--chalk);
+  letter-spacing: -0.01em;
+  text-align:center
+}
+
+.tagline {
+  font-size: 1.05rem;
+  color: var(--slate);
+  max-width: 34ch;
+  /* Centered the box horizontally and kept your bottom margin */
+  margin: 0 auto 2.2rem; 
+  text-align: center;
+}
+
+.current {
+  /* Changed to flex so it behaves like a block and responds to margin auto */
+  display: flex; 
+  /* Shrinks the width to fit the content, replacing inline-flex behavior */
+  width: fit-content; 
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--amber);
+  border: 1px solid rgba(224, 164, 88, 0.35);
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  /* Centered the box horizontally and kept your bottom margin */
+  margin: 0 auto 2.6rem; 
+}
+
+
+.current::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 6px var(--amber);
+}
+
+.links {
+  display: flex;
+  /* Centered the flex items horizontally */
+  justify-content: center; 
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(143, 166, 163, 0.25);
+}
+
+.links a {
+  color: var(--chalk);
+  text-decoration: none;
+  font-size: 0.95rem;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+  /* Removed align-items (it only belongs on flex/grid parents) */
+}
+
+.links a:hover, .links a:focus-visible {
+  color: var(--teal);
+  border-color: var(--teal);
+  /* Removed align-items here as well */
+}
+
+
+.projects-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 1rem;
+}
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.project-link {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid rgba(143, 166, 163, 0.25);
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--chalk);
+  font-size: 1.05rem;
+  transition: border-color 0.15s, background 0.15s, transform 0.15s;
+}
+
+.project-link:hover, .project-link:focus-visible {
+  border-color: var(--teal);
+  background: rgba(94, 217, 196, 0.06);
+  transform: translateX(2px);
+}
+
+.project-link .arrow {
+  color: var(--teal);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+}
+
+a:focus-visible, .project-link:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

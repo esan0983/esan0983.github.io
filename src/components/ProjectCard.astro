@@ -1,0 +1,171 @@
+---
+interface LinkInfo {
+  url: string;
+  label: string; // e.g. "GitHub", "Paper", "Demo"
+  icon?: "github" | "paper" | "link"; // which icon to render
+}
+
+interface Props {
+  title: string;
+  image?: string;
+  description: string;
+  tags?: string[];
+  openSource?: boolean;
+  links?: LinkInfo[]; // supports zero, one, or multiple links
+}
+
+const { title, image, description, tags, openSource = false, links = [] } = Astro.props;
+---
+
+<div class="card">
+  <div class="card-header">
+    <h3>{title}</h3>
+  </div>
+
+  {image && (
+    <div class="image-wrap">
+      <img src={image} alt={title} loading="lazy" />
+    </div>
+  )}
+
+  <p class="description">{description}</p>
+
+  {tags && (
+    <div class="tags">
+      {tags?.map((tag: string) => (
+        <span class="tag">{tag}</span>
+      ))}
+    </div>
+  )}
+  
+
+  {links.length > 0 && (
+    <div class="links">
+      {links.map((link) => (
+        <a class="link-btn" href={link.url} target="_blank" rel="noopener noreferrer">
+          {link.icon === "github" && (
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+              0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53
+              .63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
+              0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09
+              2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+              3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+          )}
+          {link.icon === "paper" && (
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true">
+              <path d="M4 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5L9.5 1H4z
+              M9 1.5V4a1 1 0 0 0 1 1h2.5" fill="none" stroke="currentColor" stroke-width="1"/>
+            </svg>
+          )}
+          {(link.icon === "link" || !link.icon) && (
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true">
+              <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H8.5a1 1 0 0 1 0 2H7a1 1 0 1 1 0-2h1.5
+              M9.646 10.5H12a3 3 0 0 0 0-6H9a3 3 0 0 0-2.83 4H7.5a1 1 0 0 1 0-2H9a1 1 0 1 1 0 2H7.5"/>
+            </svg>
+          )}
+          {link.label}
+        </a>
+      ))}
+    </div>
+  )}
+</div>
+
+<style>
+  .card {
+    background: #12141a;
+    border: 1px solid #2a2d38;
+    border-radius: 14px;
+    padding: 1.25rem;
+    color: #e6e6e6;
+    font-family: system-ui, sans-serif;
+    max-width: 420px;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .badge {
+    font-size: 0.7rem;
+    color: #6ee7b7;
+    border: 1px solid #2f6f57;
+    background: rgba(110, 231, 183, 0.08);
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+    font-family: monospace;
+  }
+
+  .image-wrap {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #2a2d38;
+    margin-bottom: 1rem;
+  }
+
+  .image-wrap img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #b3b6bf;
+    margin: 0 0 1rem 0;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .tag {
+    font-size: 0.72rem;
+    font-family: monospace;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #3a3d4a;
+    color: #cfd2db;
+    background: #1a1c24;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #1a1c24;
+    border: 1px solid #3a3d4a;
+    color: #e6e6e6;
+    padding: 0.5rem 0.9rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: background 0.15s ease;
+  }
+
+  .link-btn:hover {
+    background: #2a2d38;
+  }
+</style>

@@ -1,0 +1,39 @@
+---
+import ProjectCard from '../components/ProjectCard.astro';
+import "../styles/global.css";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+        <link rel="stylesheet" href="/src/styles/global.css" />
+		<title>Home</title>
+	</head>
+	<body>
+        <div class="content">
+            <h1>Miscellaneous</h1>
+            <div class="grid">
+                <ProjectCard
+                    title="FPGA AES-128 Encryption"
+                    image="images/aes.png"
+                    description="A full, modular VHDL implementation of AES-128 encryption that uses UART protocols. Complete, working testbenches are provided for each module."
+                    tags={["vhdl"]}
+                    links={[{url: "https://github.com/esan0983/VHDL-AES-128-Encrypter", label:"GitHub", icon:"github"}]}
+                />
+            </div>
+
+            <style>
+                .grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+                    gap: 1.5rem;
+                    padding: 2rem;
+                }
+            </style>
+        </div>
+	</body>
+</html>

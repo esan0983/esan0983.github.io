@@ -1,0 +1,50 @@
+---
+import ProjectCard from '../components/ProjectCard.astro';
+import "../styles/global.css";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+        <link rel="stylesheet" href="/src/styles/global.css" />
+		<title>Home</title>
+	</head>
+	<body>
+        <div class="content">
+            <h1>Data Science</h1>
+                <div class="grid">
+                    <ProjectCard
+                        title="CSGO Ranked Analytics"
+                        image="images/db_screenshot.png"
+                        description="An end-to-end analytics pipeline involving a dataset of over 950,000 damage events in CS:GO ranked, studying trends of player behavior across ranks. An XGBoost model is used to predict player rank from damage entries."
+                        tags={["python", "sql", "jupyter", "tableau"]}
+                        links={[{url: "https://github.com/esan0983/CSGO-Ranked-Match-Analysis", label:"GitHub", icon: "github"}]}
+                    />
+                </div>
+
+                <div class="grid">
+                    <ProjectCard
+                        title="Solar Geoengineering Survey Experiment"
+                        image="images/solar.png"
+                        description="Investigated the moral hazard of solar geoengineering using a pre-registered experiment (N=2,509). Results show that balanced geoengineering information does not suppress public support for decarbonization, suggesting research can proceed without undermining broader climate action."
+                        tags={["r", "qualtrics"]}
+                        links={[{url: "https://www.cambridge.org/core/journals/journal-of-experimental-political-science/article/balanced-messaging-about-solar-geoengineering-does-not-reduce-average-support-for-emissions-reductions/1BD6872E981BAC46EB4394BF4FA0B163", label:"Paper", icon: "paper"}]}
+                    />
+                </div>
+
+                <style>
+                    .grid {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+                        gap: 1.5rem;
+                        padding: 2rem;
+                    }
+                </style>
+        </div>
+		
+	</body>
+</html>

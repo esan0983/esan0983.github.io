@@ -1,5 +1,5 @@
 ---
-
+import "../styles/global.css";
 ---
 
 <html lang="en">
@@ -9,9 +9,33 @@
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Ezra Santos</title>
+		<link rel="stylesheet" href="/src/styles/global.css" />
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<div class="wrap">
+			<svg class="plot" viewBox="0 0 600 220" preserveAspectRatio="none">
+				<path d="M0,150 C60,20 120,220 180,90 C240,-20 300,180 360,60 C420,-10 480,160 540,80 C570,50 600,100 600,100"
+					fill="none" stroke="#5ED9C4" stroke-width="2"/>
+			</svg>
+			<div class="content">
+				<h1>Ezra Santos</h1>
+				<p class="tagline">Mathematics graduate with an interest in <strong>Data Science</strong>, <strong>Game Optimization</strong>, and <strong>Math/Physics Simulations</strong>.</p>
+
+				<div class="current">Currently working on: Anime Analytics (Planning &amp; ETL Phase)</div>
+
+				<div class="links">
+					<a href="https://www.github.com/esan0983" target="_blank">GitHub</a>
+					<a href="mailto:ezramsantos@gmail.com">Email</a>
+				</div>
+
+				<p class="projects-label">Projects</p>
+				<div class="projects">
+					<a class="project-link" href="datascience">Data Science <span class="arrow">→</span></a>
+					<a class="project-link" href="mathphysics">Mathematics / Physics <span class="arrow">→</span></a>
+					<a class="project-link" href="misc">Miscellaneous <span class="arrow">→</span></a>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
