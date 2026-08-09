@@ -24,9 +24,7 @@ import "../styles/global.css";
                         tags={["python", "sql", "jupyter", "tableau"]}
                         links={[{url: "https://github.com/esan0983/CSGO-Ranked-Match-Analysis", label:"GitHub", icon: "github"}]}
                     />
-                </div>
 
-                <div class="grid">
                     <ProjectCard
                         title="Solar Geoengineering Survey Experiment"
                         image="/images/solar.png"
@@ -45,13 +43,13 @@ import "../styles/global.css";
                     }
 
                     @media (min-width: 1400px) {
-                        .project-grid {
+                        .grid {
                         grid-template-columns: repeat(4, 1fr);
                         }
                     }
 
                     @media (min-width: 1000px) and (max-width: 1399px) {
-                        .project-grid {
+                        .grid {
                         grid-template-columns: repeat(3, 1fr);
                         }
                     }

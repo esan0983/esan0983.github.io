@@ -23,25 +23,19 @@ import "../styles/global.css";
                         description="A modular Python-based simulation tool using discrete probability theory and non-stationary stochastic modeling to optimize player builds and analyze rare event distributions. Supplemented the project with an AutoHotkey automation script to optimize resource loops in high-attention game modes. GitHub is gatekept to the guild, email if interested. Possibility of UI being implemented soon."
                         tags={["python", "sql", "ahk"]}
                     />
-                </div>
 
-                <div class="grid">
                     <ProjectCard
                         title="Dimensions of the Irreps of Sn"
                         image="/images/drp.jpg"
                         description="For the 2025 UChicago Mathematics DRP, I had the privilege of studying the irreducible representations of the symmetric group for general n under Kevin Lin. In the fall, I presented my findings to fellow DRP students. I started with introducing basic concepts in representation theory, and then I displayed the uses of the Young tableaux and the hook length formula."
                     />
-                </div>
 
-                <div class="grid">
                     <ProjectCard
                         title="Jet Reconstruction Algorithm Optimization"
                         description="Under the guidance of Professor David Miller and Graduate Student Mark Larson, I assisted with optimizing Vitis HLS code during the summer of 2025. In this time period, I quickly adapted to coding in Vitis HLS, studied HLS pragmas, wrote custom TCL scripts to run the same code under different pragmas, collected and displayed data using Jupyter Notebook, and wrote a 14-page documentation for future undergraduates working under David Miller."
                         tags={["c", "vitis hls", "vhdl", "tcl"]}
                     />
-                </div>
 
-                <div class="grid">
                     <ProjectCard
                         title="Inverted Pendulum Stabilization"
                         image="/images/pid.png"
@@ -49,9 +43,7 @@ import "../styles/global.css";
                         tags={["python", "jupyter"]}
                         links={[{url: "https://github.com/esan0983/PID-Inverted-Pendulum", label: "GitHub", icon:"github"}]}
                     />
-                </div>
-
-                <div class="grid">
+   
                     <ProjectCard
                         title="Rips Complex Visualization"
                         image="/images/rips.png"
@@ -59,9 +51,7 @@ import "../styles/global.css";
                         tags={["python"]}
                         links={[{url: "https://github.com/esan0983/ripsvisualization", label: "GitHub", icon:"github"}]}
                     />
-                </div>
 
-                <div class="grid">
                     <ProjectCard
                         title="Persistent Homology"
                         image="/images/reu.png"
@@ -80,13 +70,13 @@ import "../styles/global.css";
                     }
 
                     @media (min-width: 1400px) {
-                        .project-grid {
+                        .grid {
                         grid-template-columns: repeat(4, 1fr);
                         }
                     }
 
                     @media (min-width: 1000px) and (max-width: 1399px) {
-                        .project-grid {
+                        .grid {
                         grid-template-columns: repeat(3, 1fr);
                         }
                     }
