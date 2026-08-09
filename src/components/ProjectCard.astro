@@ -80,7 +80,11 @@ const { title, image, description, tags, openSource = false, links = [] } = Astr
     padding: 1.25rem;
     color: #e6e6e6;
     font-family: system-ui, sans-serif;
-    max-width: 420px;
+    width: 100%;        /* was max-width: 420px */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
   }
 
   .card-header {
@@ -116,7 +120,7 @@ const { title, image, description, tags, openSource = false, links = [] } = Astr
   .image-wrap img {
     display: block;
     width: 100%;
-    height: 200px;
+    height: 260px;      /* was 200px — a bit taller */
     object-fit: cover;
     object-position: top;
   }
@@ -149,6 +153,7 @@ const { title, image, description, tags, openSource = false, links = [] } = Astr
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    margin-top: auto;
   }
 
   .link-btn {
