@@ -18,6 +18,13 @@ import "../styles/global.css";
             <h1>Data Science</h1>
                 <div class="grid">
                     <ProjectCard
+                        title="Fantasy Anime League Bot"
+                        description="A data science project consisting of two models: Model A uses data collected from Tenrai API calls to predict anime rankings for the Fall 2026 season. An end-to-end data pipeline was implemented from ETL all the way to machine learning. Model B uses Kalman Filters to forecast anime success mid-season."
+                        tags={["python", "jupyter"]}
+                        links={[{url: "https://github.com/esan0983/FAL-Destroyer-3000", label:"GitHub", icon: "github"}]}
+                    />
+
+                    <ProjectCard
                         title="CSGO Ranked Analytics"
                         image="/images/db_screenshot.png"
                         description="An end-to-end analytics pipeline involving a dataset of over 950,000 damage events in CS:GO ranked, studying trends of player behavior across ranks. An XGBoost model is used to predict player rank from damage entries."
